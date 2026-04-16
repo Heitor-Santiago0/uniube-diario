@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniube Diário</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+```
+<!-- TOPO -->
+<header>
+
+<a href="https://uniube.br" target="_blank" class="logo-uniube">
+    <img src="img/logo.png" alt="Logo Uniube">
+</a>
+
+<a href="index.html" class="logo-diario">
+    <img src="img/logo-diario.png" alt="Uniube Diário">
+</a>
+
+<nav>
+<ul>
+<li><a href="index.html">Início</a></li>
+<li><a href="sobre.html">Sobre</a></li>
+<li><a href="galeria.html">Galeria</a></li>
+<li><a href="contato.html">Contato</a></li>
+</ul>
+</nav>
+
+</header>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<main class="container">
+
+    <!-- LADO ESQUERDO -->
+    <section class="esquerda">
+        <h1>Bem-vindo ao Uniube Diário</h1>
+        <p>Jornal com o objetivo de informar tudo que você estudante precisa saber sobre a faculdade e sobre assuntos que impactam sua vida acadêmica.</p>
+
+        <h2>Destaques</h2>
+        <p> Provas a caminho! Início das provas nesta semana (06/04).</p>
+        <p> Gemini Pro disponível para alunos com e-mail institucional @edu.</p>
+        <p> Fique atento aos comunicados acadêmicos, eventos universitários e oportunidades para estudantes.</p>
+    </section>
+
+    <!-- LADO DIREITO -->
+    <section class="direita">
+        <div class="slider">
+
+            <!-- NOTÍCIA 1 -->
+           <div class="slide ativo">
+    <a href="noticia1.html">
+        <img src="img/noticia1.jpg" alt="Uniube Aberta - Feira de profissões">
+        <p class="titulo">
+            <span class="tag eventos">Eventos</span>
+            Uniube Aberta: feira de profissões acontece no Campus Aeroporto
+        </p>
+        <p class="lide">
+            Evento acontece no dia 23 de maio, a partir das 9h, com experiências, brindes e ativações para apresentar cursos e oportunidades da Uniube.
+        </p>
+    </a>
+</div>
+
+            <!-- NOTÍCIA 2 -->
+            <div class="slide">
+                <a href="noticia2.html">
+                    <img src="img/noticia2.jpg" alt="Evento de tecnologia na Uniube">
+                    <p class="titulo">
+                        <span class="tag eventos">Eventos</span>
+                        Evento de tecnologia na Uniube
+                    </p>
+                    <p class="lide">
+                        Encontro reunirá empresas, professores e estudantes para apresentar tendências e novas tecnologias.
+                    </p>
+                </a>
+            </div>
+
+            <!-- NOTÍCIA 3 -->
+            <div class="slide">
+                <a href="noticia3.html">
+                    <img src="img/noticia3.jpg" alt="Dicas para semana de provas">
+                    <p class="titulo">
+                        <span class="tag estudos">Estudos</span>
+                        Dicas para semana de provas
+                    </p>
+                    <p class="lide">
+                        Organização, revisão e descanso podem fazer diferença no seu desempenho durante a semana de avaliações.
+                    </p>
+                </a>
+            </div>
+
+            <!--NOTICIA 4-->
+            <div class="slide">
+    <a href="noticia4.html">
+        <img src="img/noticia4.jpg" alt="Vestibular de Medicina da Uniube">
+        <p class="titulo">
+            <span class="tag oportunidades">Oportunidades</span>
+            Vestibular de Medicina da Uniube agora tem prova unificada
+        </p>
+        <p class="lide">
+            Com uma única inscrição, candidatos concorrem a vagas em Uberaba e Ituiutaba. A prova será no dia 30 de maio.
+        </p>
+    </a>
+</div>
+
+        <!--NOTICIA 5-->
+        <div class="slide">
+    <a href="noticia5.html">
+        <img src="img/noticia5.jpg" alt="Uniube em Ituiutaba">
+        <p class="titulo">
+            <span class="tag campus">Campus</span>
+            Uniube amplia presença em Minas com operação em Ituiutaba
+        </p>
+        <p class="lide">
+            Instituição assume operação da FacMais e passa a oferecer novas vagas em cursos como Direito, Medicina e Medicina Veterinária.
+        </p>
+    </a>
+</div>
+
+        <!--NOTICIA 6-->
+        <div class="slide">
+    <a href="noticia6.html">
+        <img src="img/noticia6.jpg" alt="Uniube patrocinadora do Uberlândia Esporte Clube">
+        <p class="titulo">
+            <span class="tag eventos">Eventos</span>
+            Uniube é patrocinadora oficial do Uberlândia Esporte Clube
+        </p>
+        <p class="lide">
+            Parceria reforça a conexão da universidade com o esporte, a cidade e grandes iniciativas regionais.
+        </p>
+    </a>
+</div>
+
+            <!-- BOTÕES -->
+            <button class="prev" aria-label="Notícia anterior">⟨</button>
+            <button class="next" aria-label="Próxima notícia">⟩</button>
+        </div>
+    </section>
+
+</main>
+
+<!-- RODAPÉ -->
+<footer>
+    <p>Por Heitor Santiago - RA: 5174491</p>
+</footer>
+
+<!--Script para os slide ( as noticias mudando no index)-->
+<script>
+    const slides = document.querySelectorAll(".slide");
+    const slider = document.querySelector(".slider");
+    const botaoProximo = document.querySelector(".next");
+    const botaoAnterior = document.querySelector(".prev");
+
+    let index = 0;
+    let intervalo;
+
+    function mostrarSlide(i) {
+        slides.forEach(slide => slide.classList.remove("ativo"));
+        slides[i].classList.add("ativo");
+    }
+
+    function proximo() {
+        index = (index + 1) % slides.length;
+        mostrarSlide(index);
+        reiniciarSlider();
+    }
+
+    function anterior() {
+        index = (index - 1 + slides.length) % slides.length;
+        mostrarSlide(index);
+        reiniciarSlider();
+    }
+
+    function iniciarSlider() {
+        intervalo = setInterval(() => {
+            index = (index + 1) % slides.length;
+            mostrarSlide(index);
+        }, 5000);
+    }
+
+    function pararSlider() {
+        clearInterval(intervalo);
+    }
+
+    function reiniciarSlider() {
+        pararSlider();
+        iniciarSlider();
+    }
+
+    botaoProximo.addEventListener("click", proximo);
+    botaoAnterior.addEventListener("click", anterior);
+
+    slider.addEventListener("mouseenter", pararSlider);
+    slider.addEventListener("mouseleave", iniciarSlider);
+
+    mostrarSlide(index);
+    iniciarSlider();
+</script>
+```
+
+</body>
+</html>
