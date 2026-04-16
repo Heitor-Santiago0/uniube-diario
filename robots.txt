@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://heitor-santiago0.github.io/uniube-diario/sitemap.xml
