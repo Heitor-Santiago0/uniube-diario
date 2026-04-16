@@ -1,0 +1,565 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #0c001f;
+}
+
+/* TOPO */
+header {
+background-color: #0c0027;
+color: white;
+padding: 15px 25px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+position: relative;
+}
+
+header img {
+    display: block;
+}
+
+/* MENU */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ffcc00;
+}
+
+/* CONTEÚDO PRINCIPAL */
+main {
+    padding: 30px;
+    color: white;
+    background-color: #0c001f;
+    flex: 1;
+    box-sizing: border-box;
+}
+
+/* HOME DIVIDIDA EM DUAS COLUNAS */
+.container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* COLUNA ESQUERDA */
+.esquerda {
+    width: 45%;
+}
+
+.esquerda h1 {
+    font-size: 38px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.esquerda h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 26px;
+}
+
+.esquerda p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* COLUNA DIREITA */
+.direita {
+    width: 55%;
+}
+
+/* SLIDER */
+.slider {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/* CADA SLIDE */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+}
+
+.slide.ativo {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+
+/* LINK DA NOTÍCIA */
+.slide a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* IMAGEM DA NOTÍCIA */
+.slide img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.4s;
+}
+
+.slide:hover img {
+    transform: scale(1.05);
+}
+
+/* TÍTULO SOBRE A IMAGEM */
+.titulo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 18px;
+    margin: 0;
+    box-sizing: border-box;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    transition: opacity 0.3s;
+}
+
+/* LIDE */
+.lide {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    margin: 0;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.88);
+    color: white;
+    font-size: 18px;
+    line-height: 1.5;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* QUANDO PASSAR O MOUSE */
+.slide:hover .titulo {
+    opacity: 0;
+}
+
+.slide:hover .lide {
+    opacity: 1;
+}
+
+/* TAGS DAS CATEGORIAS */
+.tag {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+
+/* CORES DAS CATEGORIAS */
+.campus {
+    background-color: #ff0033;
+}
+
+.estudos {
+    background-color: #00aa55;
+}
+
+.eventos {
+    background-color: #ff8800;
+}
+
+.oportunidades {
+    background-color: #0077ff;
+}
+
+/* BOTÕES DO SLIDER */
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.65);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 12px 16px;
+    cursor: pointer;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.prev:hover,
+.next:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* RODAPÉ */
+footer {
+    background-color: #1b2f3d;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-size: 15px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .esquerda,
+    .direita {
+        width: 100%;
+    }
+
+    .slider {
+        height: 300px;
+    }
+
+    .slide img {
+        height: 300px;
+    }
+
+    .titulo {
+        font-size: 20px;
+    }
+
+    .lide {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .esquerda h1 {
+        font-size: 30px;
+    }
+
+    .esquerda h2 {
+        font-size: 22px;
+    }
+
+    .esquerda p {
+        font-size: 16px;
+    }
+
+    .slider {
+        height: 230px;
+    }
+
+    .slide img {
+        height: 230px;
+    }
+
+    .titulo {
+        font-size: 18px;
+        padding: 14px;
+    }
+
+    .lide {
+        font-size: 15px;
+        padding: 16px;
+    }
+
+    .prev,
+    .next {
+        font-size: 20px;
+        padding: 10px 14px;
+    }
+}
+
+
+
+
+
+/* GALERIA DE NOTÍCIAS */
+
+.galeria {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 25px;
+margin-top: 30px;
+}
+
+.card-noticia {
+background-color: #140033;
+border-radius: 10px;
+overflow: hidden;
+text-decoration: none;
+color: white;
+transition: transform 0.3s, box-shadow 0.3s;
+display: block;
+}
+
+.card-noticia:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.card-noticia img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+display: block;
+}
+
+.card-noticia .info {
+padding: 15px;
+}
+
+.card-noticia h3 {
+margin-top: 10px;
+font-size: 20px;
+line-height: 1.4;
+}
+
+
+
+
+/* PÁGINA SOBRE */
+
+main h1 {
+margin-top: 0;
+font-size: 36px;
+}
+
+main h2 {
+margin-top: 30px;
+font-size: 26px;
+}
+
+main ul,
+main ol {
+font-size: 18px;
+line-height: 1.6;
+margin-left: 25px;
+margin-bottom: 20px;
+}
+
+main li {
+margin-bottom: 8px;
+}
+
+/* TABELA */
+
+table {
+width: 100%;
+margin-top: 20px;
+border-collapse: collapse;
+background-color: #140033;
+color: white;
+}
+
+table th {
+background-color: #1e0047;
+}
+
+table th,
+table td {
+padding: 12px;
+border: 1px solid rgba(255,255,255,0.2);
+text-align: left;
+}
+
+table tr:hover {
+background-color: rgba(255,255,255,0.05);
+}
+
+
+/* FORMULÁRIO DE CONTATO */
+
+.formulario {
+max-width: 600px;
+margin-top: 30px;
+}
+
+form {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+label {
+font-weight: bold;
+margin-top: 10px;
+}
+
+input,
+textarea {
+padding: 10px;
+border-radius: 5px;
+border: none;
+font-size: 16px;
+font-family: Arial, sans-serif;
+}
+
+textarea {
+resize: vertical;
+}
+
+button {
+margin-top: 15px;
+padding: 12px;
+background-color: #ffcc00;
+border: none;
+border-radius: 5px;
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.3s;
+}
+
+button:hover {
+background-color: #e6b800;
+}
+
+
+
+
+
+
+/* PÁGINAS DE NOTÍCIA */
+
+.pagina-noticia {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #140033;
+    padding: 30px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.pagina-noticia h1 {
+    font-size: 38px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.imagem-noticia {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    display: block;
+}
+
+.pagina-noticia p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+.voltar {
+    display: inline-block;
+    margin-top: 10px;
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.voltar:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 600px) {
+    .pagina-noticia {
+        padding: 20px;
+    }
+
+    .pagina-noticia h1 {
+        font-size: 28px;
+    }
+
+    .pagina-noticia p {
+        font-size: 16px;
+    }
+
+    .imagem-noticia {
+        max-height: 250px;
+    }
+}
+
+
+/* LOGO UNIUBE (ESQUERDA) */
+
+.logo-uniube img {
+height: 155px;
+}
+
+/* LOGO DIÁRIO (CENTRO) */
+
+.logo-diario {
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+}
+
+.logo-diario img {
+height: 270px;
+}
